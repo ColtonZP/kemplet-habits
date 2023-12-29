@@ -13,7 +13,7 @@ exports.addUser = functions.auth.user().onCreate((user: UserRecord) => {
         .firestore()
         .collection('users')
         .doc(uid)
-        .set({ habits: [], history: {} });
+        .set({ habits: [], habitHistory: {} });
 });
 
 exports.removeUser = functions.auth.user().onDelete((user: UserRecord) => {
