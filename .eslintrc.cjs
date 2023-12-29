@@ -15,8 +15,10 @@ module.exports = {
             'warn',
             { allowConstantExport: true },
         ],
-        "no-unused-vars": 0,
-        "@typescript-eslint/no-unused-vars": 0,
+        'no-unused-vars': 0,
+        '@typescript-eslint/no-unused-vars': 0,
         '@typescript-eslint/no-var-requires': 'off',
+        // added this cause prettier hates me
+        'prettier/prettier': 0,
     },
 };
