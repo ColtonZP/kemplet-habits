@@ -1,7 +1,13 @@
 import { getAuth, signOut } from 'firebase/auth';
 import { app, db } from '../../utils/firebase.ts';
 import React, { useEffect } from 'react';
-import { doc, updateDoc, arrayUnion, onSnapshot } from 'firebase/firestore';
+import {
+    arrayUnion,
+    doc,
+    getDoc,
+    onSnapshot,
+    updateDoc,
+} from 'firebase/firestore';
 
 const auth = getAuth(app);
 
@@ -30,9 +36,20 @@ export const Habits = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        await updateDoc(habitRef, {
-            habits: arrayUnion(habitForm),
-        });
+        const doc = await getDoc(habitRef);
+        if (doc.data()?.habits.includes(habitForm)) {
+            return;
+        }
+
+        try {
+            setHabitForm('');
+            await updateDoc(habitRef, {
+                habits: arrayUnion(habitForm),
+            });
+        } catch (error) {
+            setHabitForm(habitForm);
+            console.error(error);
+        }
     };
 
     return (
