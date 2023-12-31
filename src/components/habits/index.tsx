@@ -1,14 +1,17 @@
+import { useEffect, useState } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
-import { app, db } from '../../utils/firebase.ts';
-import React, { useEffect } from 'react';
 import { doc, updateDoc, arrayUnion, onSnapshot } from 'firebase/firestore';
+
+import motivation from '@/motivationalLines.json';
+
+import { app, db } from '@/utils/firebase.ts';
 import { Button } from '@ui/Button.tsx';
 
 const auth = getAuth(app);
 
 export const Habits = () => {
-    const [habitForm, setHabitForm] = React.useState('');
-    const [habits, setHabits] = React.useState<string[]>([]);
+    const [habitForm, setHabitForm] = useState('');
+    const [habits, setHabits] = useState<string[]>([]);
 
     const habitRef = doc(db, 'users', auth.currentUser!.uid);
 
@@ -40,12 +43,18 @@ export const Habits = () => {
         <div className="grid grid-cols-2 gap-10 p-10 max-w-screen-xl mx-auto">
             {/* Left Column */}
             <div>
-                <div className="flex items-center mb-10 gap-4 font-bold">
-                    <h2 className="text-4xl">
+                <div className="flex items-center mb-5 gap-4">
+                    <h2 className="text-4xl font-bold">
                         Welcome, {auth.currentUser?.displayName}!
                     </h2>
-                    <Button onClick={handleSignOut}>Sign Out</Button>
+                    <Button intent="ghost" onClick={handleSignOut}>
+                        Sign Out
+                    </Button>
                 </div>
+
+                <p className="mb-10 italic">
+                    {motivation[Math.floor(Math.random() * motivation.length)]}
+                </p>
 
                 <div>
                     <div className="bg-white rounded-xl p-10">
