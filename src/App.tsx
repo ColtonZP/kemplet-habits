@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { app } from './utils/firebase.ts';
 import { Auth } from './components/auth';
 import { Habits } from './components/habits';
+import './styles.css';
 
 const auth = getAuth(app);
 

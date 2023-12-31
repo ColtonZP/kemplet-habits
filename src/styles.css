@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-licorice: 11 2 11;
+        --color-ghost-white: 230 232 243;
+        --color-text-tertiary: 142 140 150,
+    }
+}
+
+body {
+    color: rgb(var(--color-licorice));
+    background-color: rgb(var(--color-ghost-white));
+    font-size: 18px
+}
