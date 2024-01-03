@@ -19,4 +19,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEMPLET }}'
           channelId: live
           projectId: kemplet
-          target: kemplet-habits
+#          target: kemplet-habits
