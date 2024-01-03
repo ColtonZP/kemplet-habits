@@ -7,7 +7,7 @@ export default {
             white: '#fff',
             licorice: 'rgb(var(--color-licorice) / <alpha-value>)',
             'ghost-white': 'rgb(var(--color-ghost-white) / <alpha-value>)',
-            'text-tertiary': 'rgb(var(--color-text-tertiary) / <alpha-value>)',
+            'text-muted': 'rgb(var(--color-text-muted) / <alpha-value>)',
         },
         extend: {},
     },
