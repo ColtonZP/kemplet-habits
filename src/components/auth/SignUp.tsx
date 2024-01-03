@@ -4,7 +4,7 @@ import {
     createUserWithEmailAndPassword,
     updateProfile,
 } from 'firebase/auth';
-import { app } from '../../utils/firebase.ts';
+import { app } from '@/utils/firebase.ts';
 
 const auth = getAuth(app);
 

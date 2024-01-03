@@ -47,7 +47,11 @@ export const Habits = () => {
                     <h2 className="text-4xl font-bold">
                         Welcome, {auth.currentUser?.displayName}!
                     </h2>
-                    <Button intent="ghost" onClick={handleSignOut}>
+                    <Button
+                        type="button"
+                        intent="ghost"
+                        onClick={handleSignOut}
+                    >
                         Sign Out
                     </Button>
                 </div>

@@ -29,6 +29,7 @@ const buttonStyles = cva('rounded-md', {
 
 type Props = VariantProps<typeof buttonStyles> & {
     icon?: string;
+    type?: 'button' | 'reset' | 'submit';
 };
 
 export const Button: React.FC<Props & React.HTMLProps<HTMLButtonElement>> = ({
